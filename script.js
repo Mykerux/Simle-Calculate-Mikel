@@ -1,28 +1,45 @@
-// Fungsi untuk menambahkan nilai ke layar kalkulator
+// Fungsi tambah nilai ke layar kalkulator
 function appendToDisplay(value) {
-    // document.getElementById('display').value += value;
-    let display = document.getElementById('display');
-    display.value += value;
-    display.value = formatNumber(display.value);
+    // var display = document.getElementById('display');
+    // var currentValue = display.value.replace(/\./g, '');
+    // display.value = formatNumber(parseFloat(currentValue + value.replace(/\./g, '')));
+    document.getElementById('display').value += value;
 }
 
-// Fungsi untuk menghapus isi layar kalkulator
+// // Format Angka
+// function formatNumber(number) {
+//     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+// }
+
+// Hapus Semua
 function clearDisplay() {
     document.getElementById('display').value = '';
 }
 
-// Fungsi untuk mengevaluasi dan menampilkan hasil perhitungan
+// Hapus Satu
+function clearLast() {
+    const value = document.getElementById('display').value;
+    var displayValue = value;
+    document.getElementById('display').value = displayValue.slice(0, -1);
+}
+
+// Hasil
 function calculateResult() {
     try {
-        document.getElementById('display').value = eval(document.getElementById('display').value);
+        // var result = eval(document.getElementById('display').value);
+        // document.getElementById('display').value = formatNumber(result.toFixed(2));
+         document.getElementById('display').value = eval(document.getElementById('display').value);
     } catch (error) {
         document.getElementById('display').value = 'Error';
     }
 }
 
-function clearLast() {
-    const value = document.getElementById('display').value;
-    let displayValue = value;
-    document.getElementById('display').value = displayValue.slice(0, -1);
+function calculate() {
+    try {
+        var expression = document.getElementById('display').value.replace(/\s/g, '');
+        var result = eval(expression);
+        document.getElementById('display').value = formatNumber(result.toFixed(2));
+    } catch (error) {
+        document.getElementById('display').value = 'Error';
+    }
 }
-
