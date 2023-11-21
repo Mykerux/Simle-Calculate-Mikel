@@ -34,6 +34,14 @@ body {
     gap: 1px;
 }
 
+.hapus {
+    background-color: pink;
+}
+
+.hasil {
+    background-color: #ff00ea63;
+}
+
 button {
     width: 100%;
     height: 50px;
@@ -44,6 +52,24 @@ button {
     background-color: #eee;
 }
 
+
 button:active {
     background-color: #ddd;
 }
+
+/* Tulisan Bergerak */
+/* .moving-text {
+    position: absolute;
+    animation: moveRight 5s linear infinite;
+    font-family: sans-serif;
+
+}
+
+@keyframes moveRight {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: calc(100% - 100px); 
+    }
+} */
